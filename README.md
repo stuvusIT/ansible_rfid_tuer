@@ -1,4 +1,4 @@
-# mattermost-gitlab-integration
+# rfid_tuer_ansible
 
 This role sets up the rfid_tuer repository with a system daemon to controll access to a door by using rfid tags.
 
