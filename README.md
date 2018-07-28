@@ -11,6 +11,8 @@ This role requires an apt based system.
 |:---------------------------------|:----------------:|:----------------------------------------------------------------|
 | `rfid_tuer_ansible_install_path` | `/opt/door`      | Install path where to script and config file will be placed.    |
 | `rfid_tuer_ansible_vars`         | see below        | Variable holding all other variables for the configuration file |
+| `rfid_tuer_ansible_user`         | `door`           | Default user under which the service is running                 |
+| `rfid_tuer_ansible_group`        | `door`           | Default group under which the service is running                |
 
 
 ## `rfid_tuer_ansible_vars`

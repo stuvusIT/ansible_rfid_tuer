@@ -1,5 +1,7 @@
 ---
 rfid_tuer_ansible_install_path: /opt/door
+rfid_tuer_ansible_user: door
+rfid_tuer_ansible_group: door
 rfid_tuer_ansible_vars:
   door_relay_number: 0 # Relay 0 is used for opening and closing the door
   door_state_input_pin: 1 # Door state input is connected to Input Pin 1

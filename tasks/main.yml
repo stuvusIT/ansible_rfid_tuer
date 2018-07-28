@@ -24,6 +24,21 @@
     state: absent
     regexp: 'blacklist spi-bcm2708'
 
+- name: Create door group
+  group:
+    name: "{{ rfid_tuer_ansible_group }}"
+
+- name: Create door user
+  user:
+    name: "{{ rfid_tuer_ansible_user }}"
+    group: "{{ rfid_tuer_ansible_group }}"
+
+- name: Write udev rules
+  copy:
+    src: udev.j2
+    dest: /etc/udev/rules.d/50-door.rules
+
+
 - name: Place systemd service file
   template:
     src: door.service.j2
@@ -34,9 +49,7 @@
   copy:
     content: "{{ rfid_tuer_ansible_vars | to_nice_yaml }}"
     dest: "{{ rfid_tuer_ansible_install_path }}/config.yml"
+    mode: 0600
+    owner: "{{ rfid_tuer_ansible_user }}"
   notify: Restart door service
 
-- name: Protect config file
-  file:
-    path: "{{ rfid_tuer_ansible_install_path }}/config.yml"
-    mode: 0600
