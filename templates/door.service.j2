@@ -4,7 +4,6 @@ Description=Door Managing serivce
 [Service]
 ExecStart=/usr/bin/python {{ rfid_tuer_ansible_install_path}}/main.py
 WorkingDirectory=/usr/bin/python {{ rfid_tuer_ansible_install_path}}
-SyslogIdentifier=door
 Restart=always
 RestartSec=3
 

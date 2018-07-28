@@ -1,4 +1,9 @@
 ---
+- name: Create install path
+  file:
+    path: "{{ rfid_tuer_ansible_install_path }}"
+    state: directory
+
 - name: Clone the rfid_tuer repository
   git:
     repo: https://github.com/stuvusIT/rfid_tuer.git
@@ -6,8 +11,7 @@
     depth: 1
     force: yes
 
-- name: Install python deps
-  apt:
+- name: Install python deps apt:
     name: "{{ item }}"
   with_items:
     - python3-pyscard
@@ -32,3 +36,7 @@
     dest: "{{ rfid_tuer_ansible_install_path }}/config.yml"
   notify: Restart door service
 
+- name: Protect config file
+  file:
+    path: "{{ rfid_tuer_ansible_install_path }}/config.yml"
+    mode: 0600
