@@ -1,7 +1,7 @@
 ---
 galaxy_info:
-  author: Insert author(s) here
-  description: Insert description here
+  author: Fritz Otlinghaus
+  description: Deployment for the rfid_tuer repository
   company: stuvus (https://stuvus.uni-stuttgart.de)
 
   license: CC-BY-SA
@@ -9,12 +9,15 @@ galaxy_info:
   min_ansible_version: 2.4
 
   platforms:
-    - name: Ubuntu
+    - name: Debian
       versions:
-        - xenial
-        - bionic
+        - stretch
 
   galaxy_tags:
-    - Insert ansible galaxy tags here
+    - raspberrypi
+    - rfid
+    - ldap
+    - piface
+    - piface-digital2
 
 dependencies: []
