@@ -1,0 +1,15 @@
+[Unit]
+Description=Door Managing serivce
+
+[Service]
+Type=simple
+ExecStart={{ rfid_tuer_ansible_install_path}}/main.py
+WorkingDirectory={{ rfid_tuer_ansible_install_path}}
+SyslogIdentifier=door
+StandardOutput=syslog
+StandardError=syslog
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target
