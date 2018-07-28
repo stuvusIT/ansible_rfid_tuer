@@ -1,7 +1,7 @@
 ---
 - name: Restart door service
   service:
-    name: door.
+    name: door
     daemon_reload: yes
     enabled: yes
     state: restarted
