@@ -3,7 +3,7 @@
 This role sets up the rfid_tuer repository with a system daemon to controll access to a door by using rfid tags.
 
 ## Requirements
-This role requires an apt based system like Ubuntu.
+This role requires an apt based system.
 
 ## Role Variables
 
