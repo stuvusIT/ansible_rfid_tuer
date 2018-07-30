@@ -11,13 +11,16 @@
     depth: 1
     force: yes
 
-- name: Install python deps apt
+- name: Install python deps apt and pcscd
   apt:
     name: "{{ item }}"
   with_items:
+    - pcscd
     - python3-pyscard
     - python3-ldap3
     - python3-yaml
+    - python3-pifacedigitalio
+    - python3-pifacecommon
 
 - name: Enable SPI
   lineinfile: 
@@ -32,13 +35,15 @@
 - name: Create door user
   user:
     name: "{{ rfid_tuer_ansible_user }}"
-    group: "{{ rfid_tuer_ansible_group }}"
+    groups: 
+      - "{{ rfid_tuer_ansible_group }}"
+      - spi
+      - gpio
 
 - name: Write udev rules
-  copy:
+  template:
     src: udev.j2
     dest: /etc/udev/rules.d/50-door.rules
-
 
 - name: Place systemd service file
   template:
@@ -48,7 +53,7 @@
 
 - name: Place config file
   copy:
-    content: "{{ rfid_tuer_ansible_vars | to_nice_yaml }}"
+    content: "{{ rfid_tuer_ansible_vars_default | combine(rfid_tuer_ansible_vars) | to_nice_yaml }}"
     dest: "{{ rfid_tuer_ansible_install_path }}/config.yml"
     mode: 0600
     owner: "{{ rfid_tuer_ansible_user }}"
