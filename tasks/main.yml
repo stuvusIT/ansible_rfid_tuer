@@ -11,7 +11,8 @@
     depth: 1
     force: yes
 
-- name: Install python deps apt:
+- name: Install python deps apt
+  apt:
     name: "{{ item }}"
   with_items:
     - python3-pyscard
