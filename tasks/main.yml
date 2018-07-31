@@ -40,11 +40,6 @@
       - spi
       - gpio
 
-- name: Write udev rules
-  template:
-    src: udev.j2
-    dest: /etc/udev/rules.d/50-door.rules
-
 - name: Place systemd service file
   template:
     src: door.service.j2
