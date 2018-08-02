@@ -1,6 +1,6 @@
 # rfid_tuer_ansible
 
-This role sets up the rfid_tuer repository with a system daemon to controll access to a door by using rfid tags.
+This role sets up the rfid_tuer repository with a system daemon to control access to a door by using rfid tags.
 
 ## Requirements
 This role requires an apt based system.
@@ -20,19 +20,19 @@ This role requires an apt based system.
 | Name                               | Required/Default   | Description                                                |
 |:-----------------------------------|:------------------:|:-----------------------------------------------------------|
 | `door_relay_number`                | `0`                | Relay number that is used for opening and closing the door |
-| `door_state_input_pin`             | `1`                | Door state input is connected to Input Pin 1               |
+| `door_state_input_pin`             | `1`                | Input pin which is connected to the door input state       |
 | `door_switch_input_pin`            | `0`                | Input switch number where the door switch is connected to  |
 | `door_switch_green_led_output_pin` | `0`                | Output pin where the green switch led is connected to      |
-| `door_switch_red_led_output_pin`   | `1`                | Output pin where the green switch led is connected to      |
-| `rfid_reader_green_led_output_pin` | `2`                | Output pin where the red switch led is connected to        |
-| `rfid_reader_red_led_output_pin`   | `3`                | Output pin where the green rfid reader led is connected to |
-| `ldap_port`                        | `389`              | Output pin where the red rfid reader led is connected to   |
+| `door_switch_red_led_output_pin`   | `1`                | Output pin where the red switch led is connected to        |
+| `rfid_reader_green_led_output_pin` | `2`                | Output pin where the green rfid reader led is connected to |
+| `rfid_reader_red_led_output_pin`   | `3`                | Output pin where the red rfid reader led is connected to   |
+| `ldap_port`                        | `389`              | LDAP port number                                           |
 | `ldap_use_ssl`                     | `true`             | To enable or disable SSL on LDAP connections               |
 | `ldap_server`                      | :heavy_check_mark: | URL to for the LDAP server that should be queried          |
-| `ldap_base_dn`                     | :heavy_check_mark: | Base DN for LDAP searc                                     |
-| `ldap_user`                        | :heavy_check_mark: | DN of user used for authentication                         |
-| `ldap_user_secret`                 | :heavy_check_mark: | Password of the user for authentication                    |
-| `ldap_match_attr`                  | :heavy_check_mark: | Attribute that should be looked up for                     |
+| `ldap_base_dn`                     | :heavy_check_mark: | Base DN for LDAP search                                    |
+| `ldap_user`                        | :heavy_check_mark: | DN of user used for bind
+| `ldap_user_secret`                 | :heavy_check_mark: | Password of the user for bind
+| `ldap_match_attr`                  | :heavy_check_mark: | Attribute that should be looked up                         |
 
 ## Example Playbook
 

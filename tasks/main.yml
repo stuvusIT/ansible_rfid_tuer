@@ -38,6 +38,7 @@
 - name: Create door and gpio group
   group:
     name: "{{ item }}"
+    system: true
   with_items:
     - "{{ rfid_tuer_ansible_group }}"
     - gpio
@@ -45,6 +46,7 @@
 - name: Create door user
   user:
     name: "{{ rfid_tuer_ansible_user }}"
+    system: true
     groups: 
       - "{{ rfid_tuer_ansible_group }}"
       - gpio
@@ -67,4 +69,3 @@
     mode: 0600
     owner: "{{ rfid_tuer_ansible_user }}"
   notify: Restart door service
-
