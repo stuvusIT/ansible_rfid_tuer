@@ -1,0 +1,3 @@
+SUBSYSTEM=="spidev", GROUP="{{ rfid_tuer_ansible_group }}", MODE="0660"
+SUBSYSTEM=="gpio*", PROGRAM="/bin/sh -c 'chown -R root:gpio /sys/class/gpio && chmod -R 770 /sys/class/gpio; chown -R root:gpio /sys/devices/virtual/gpio && chmod -R 770 /sys/devices/virtual/gpio'"
+
