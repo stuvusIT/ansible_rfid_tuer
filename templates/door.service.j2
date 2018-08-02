@@ -1,0 +1,13 @@
+[Unit]
+Description=Door Managing serivce
+
+[Service]
+ExecStart=/usr/bin/python3 {{ rfid_tuer_ansible_install_path }}/main.py
+WorkingDirectory={{ rfid_tuer_ansible_install_path }}
+Restart=always
+RestartSec=3
+User={{ rfid_tuer_ansible_user }}
+Group = {{ rfid_tuer_ansible_group }}
+
+[Install]
+WantedBy=multi-user.target
