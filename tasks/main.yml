@@ -13,21 +13,19 @@
 
 - name: Install python deps apt and pcscd
   apt:
-    name: "{{ item }}"
-  with_items:
-    - pcscd
-    - python3-pyscard
-    - python3-ldap3
-    - python3-yaml
-    - python3-pip
+    name:
+      - pcscd
+      - python3-pyscard
+      - python3-ldap3
+      - python3-yaml
+      - python3-pip
 
 - name: Install python3-pifacecommon and pifacedigitalio
   pip:
-    name: "{{ item }}"
+    name:
+      - git+https://github.com/piface/pifacecommon
+      - git+https://github.com/piface/pifacedigitalio
     executable: pip3
-  with_items:
-    - git+https://github.com/piface/pifacecommon
-    - git+https://github.com/piface/pifacedigitalio
 
 - name: Enable SPI
   lineinfile: 
