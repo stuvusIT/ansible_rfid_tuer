@@ -30,9 +30,10 @@ This role requires an apt based system.
 | `ldap_use_ssl`                     | `true`             | To enable or disable SSL on LDAP connections               |
 | `ldap_server`                      | :heavy_check_mark: | URL to for the LDAP server that should be queried          |
 | `ldap_base_dn`                     | :heavy_check_mark: | Base DN for LDAP search                                    |
-| `ldap_user`                        | :heavy_check_mark: | DN of user used for bind
-| `ldap_user_secret`                 | :heavy_check_mark: | Password of the user for bind
+| `ldap_user`                        | :heavy_check_mark: | DN of user used for bind                                   |
+| `ldap_user_secret`                 | :heavy_check_mark: | Password of the user for bind                              |
 | `ldap_match_attr`                  | :heavy_check_mark: | Attribute that should be looked up                         |
+| `ldap_owner_attr`                  | :heavy_check_mark: | Attribute that contains the card owner (used for looging)  |
 
 ## Example Playbook
 

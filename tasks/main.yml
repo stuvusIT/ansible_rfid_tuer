@@ -11,14 +11,17 @@
     depth: 1
     force: yes
 
-- name: Install python deps apt and pcscd
+- name: Install dependencies
   apt:
     name:
       - pcscd
+      - build-essential
+      - libsystemd-dev
       - python3-pyscard
       - python3-ldap3
       - python3-yaml
       - python3-pip
+      - python3-systemd
 
 - name: Install python3-pifacecommon and pifacedigitalio
   pip:
